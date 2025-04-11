@@ -11,7 +11,7 @@ Gemini翻译插件 - 基于Google Gemini AI的高质量翻译服务
 
 ## 📝 简介
 
-这是一个基于Google Gemini AI API的翻译插件，为[pot-app](https://github.com/pot-app/pot-app)提供强大的翻译功能。利用先进的AI模型，本插件能够提供准确、专业且自然流畅的多语言翻译结果。
+这是一个基于Google Gemini AI API的翻译插件，为[pot-app](https://pot-app.com/)提供强大的翻译功能。利用先进的AI模型，本插件能够提供准确、专业且自然流畅的多语言翻译结果。
 
 ## ✨ 功能特点
 
@@ -23,7 +23,7 @@ Gemini翻译插件 - 基于Google Gemini AI的高质量翻译服务
 
 ## 🔧 前置要求
 
-- [pot-app](https://github.com/pot-app/pot-app) - 请先下载并安装pot-app
+- [pot-app](https://pot-app.com/) - 请先下载并安装pot-app
 - Gemini API密钥 - 需要申请Google Gemini API密钥
 
 ## 📥 安装方法
