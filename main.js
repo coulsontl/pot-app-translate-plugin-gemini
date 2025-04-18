@@ -1,7 +1,7 @@
 async function translate(text, from, to, options) {
     const { config, detect, setResult } = options;
 
-    let { apiKey, modelName, customModelName, systemPrompt, userPrompt, useStream: use_stream = 'true', temperature = '0', topP = '0.95', apiBaseUrl = "https://generativelanguage.googleapis.com/v1beta" } = config;
+    let { apiKey, modelName, customModelName, systemPrompt, userPrompt, requestArguments, useStream: use_stream = 'true', temperature = '0', topP = '0.95', apiBaseUrl = "https://generativelanguage.googleapis.com/v1beta" } = config;
 
     if (!apiKey) {
         throw new Error("Please configure API Key first");
@@ -62,6 +62,16 @@ async function translate(text, from, to, options) {
         "Content-Type": "application/json"
     };
 
+    // 处理其他参数配置
+    let otherConfigs = {};
+    if (requestArguments && requestArguments.trim() !== "") {
+        try {
+            otherConfigs = JSON.parse(requestArguments)
+        } catch (e) {
+            console.error(`Invalid requestArguments: ${e.message}`);
+        }
+    }
+
     const body = {
         safetySettings: [
             {
@@ -100,6 +110,8 @@ async function translate(text, from, to, options) {
         generationConfig: {
             temperature: parseFloat(temperature),
             topP: parseFloat(topP),
+            // 关闭思考：{"thinkingConfig":{"includeThoughts":false},"stopSequences":[]}
+            ...otherConfigs,
         }
     }
     // return apiUrl.href;
